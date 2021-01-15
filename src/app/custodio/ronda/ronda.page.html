@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-back-button color="light"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Ronda</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+    <form [formGroup]="formRondin">
+        <ion-grid>
+            <ion-row formArrayName="recorridos">
+                <ion-col *ngFor="let ron of getRecorridos(formRondin); let i = index;" size="12">
+                    <ion-card [formGroupName]="i">
+                        <ion-card-header>
+                            <ion-item [disabled]="!ron.get('checked').value" (click)="expandedRondin(i)">
+                                <ion-label>{{ron.get('descripcion').value.toUpperCase()}}</ion-label>
+                                <fa-icon icon="check" style="color: #2dd36f; margin-left: 10px;" *ngIf="ron.get('checked').value"></fa-icon>
+                                <fa-icon icon="exclamation-circle" style="color: #eb445a; margin-left: 10px;" *ngIf="!ron.get('checked').value"></fa-icon>
+                                <fa-icon icon="angle-down" style="color: #222428; margin-left: 10px;" *ngIf="!ron.get('expanded').value"></fa-icon>
+                                <fa-icon icon="angle-up" style="color: #222428; margin-left: 10px;" *ngIf="ron.get('expanded').value"></fa-icon>
+                            </ion-item>
+                        </ion-card-header>
+                        <ion-card-content [ngClass]="{'d-none': !ron.get('expanded').value}" class="">
+                            <ion-list>
+                                <ion-item>
+                                    <ion-label position="floating">Observacion</ion-label>
+                                    <ion-input type="text" formControlName="observacion"></ion-input>
+                                </ion-item>
+                            </ion-list>
+                            <ion-grid>
+                                <ion-row formArrayName="fotos">
+                                    <ion-col size="12">
+                                        <h2 style="color:#222428">Fotos</h2>
+                                    </ion-col>
+                                    <ion-col size="4" *ngFor="let foto of getFotoRecorrido(ron); let a = index;">
+                                        <div class="img">
+                                            <img [src]="foto.get('foto').value" *ngIf="foto.get('foto').value !== '' ">
+                                            <fa-icon icon="trash" (click)="rmFotoRecorrido(i,a)"></fa-icon>
+                                        </div>
+                                    </ion-col>
+                                    <ion-col size="12">
+                                        <ion-button color="dark" expand="block" (click)="openGalleryGeneric(i)">Agregar foto</ion-button>
+                                        <!-- <ion-button color="dark" expand="block" (click)="addFotoRecorrido('aa',i)" *ngIf="3 > getFotoRecorrido(ron).length ">Agregar foto</ion-button> -->
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </ion-card-content>
+                    </ion-card>
+
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button (click)="getQr()" expand="block" [disabled]="escaneando" color="secondary">Escanear QR</ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button expand="block" [disabled]="formRondin.invalid" (click)="finRecorrido()">Finalizar Ronda</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

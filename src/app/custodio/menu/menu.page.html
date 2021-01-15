@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-title>Menu</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="salir()">
+                <fa-icon icon="sign-out-alt"></fa-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+    <div id="container">
+        <ion-grid>
+            <ion-row>
+                <ion-col (click)="getPage('custodio/ronda')">
+                    <div class="type">
+                        <fa-icon icon="route"></fa-icon>
+                        <span>Ronda</span>
+
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col (click)="getPage('custodio/revista')">
+                    <div class="type">
+                        <fa-icon icon="people-arrows"></fa-icon>
+                        <span>Revista</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

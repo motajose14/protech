@@ -1,0 +1,8 @@
+{
+  "name": "protech",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-title>Servicios</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="salir()">
+                <fa-icon icon="sign-out-alt"></fa-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+    <ion-list>
+        <ion-item *ngFor="let servicio of servicios" (click)="getDetalle(servicio)">
+            <ion-label>
+                <h2>{{servicio.descripcion.toUpperCase()}}</h2>
+            </ion-label>
+            <ion-button fill="clear" color="dark">
+                <fa-icon icon="angle-right"></fa-icon>
+            </ion-button>
+        </ion-item>
+    </ion-list>
+</ion-content>

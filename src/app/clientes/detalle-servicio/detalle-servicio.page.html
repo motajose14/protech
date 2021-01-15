@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-back-button color="light"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Detalles del servico</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+    <ion-card *ngIf="servicio">
+        <ion-card-content>
+            <h2>Descripcion: {{servicio.descripcion.toUpperCase()}}</h2>
+            <!-- <h2>Estatus:
+                <span [ngSwitch]="servicio.status">
+              <span *ngSwitchCase="1">
+                <ion-badge color="success">Activo</ion-badge>
+              </span>
+                <span *ngSwitchCase="2">
+                <ion-badge color="success">Inactivo</ion-badge>
+              </span>
+                <span *ngSwitchDefault>
+                <ion-badge color="ligth">No Disponible</ion-badge>
+              </span>
+                </span>
+            </h2> -->
+            <h2>Guardia (s):</h2>
+            <ion-list>
+                <ion-item *ngFor="let custodio of servicio.custodio">
+                    <ion-label>
+                        <h3>{{custodio.nombre.toUpperCase()}} {{custodio.ape_pat.toUpperCase()}} </h3>
+                        <p>{{custodio.telefono}}</p>
+                    </ion-label>
+                    <ion-button (click)="addIncidencia(custodio)">
+                        <fa-icon icon="plus" style="padding-right: 5px;"></fa-icon> Incidencia
+                    </ion-button>
+                </ion-item>
+            </ion-list>
+            <br>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

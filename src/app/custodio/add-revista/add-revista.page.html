@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-back-button color="light"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Revista a <span *ngIf="custodio">{{custodio.nombre.toUpperCase()}} {{custodio.ape_pat.toUpperCase()}}</span></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+    <form [formGroup]="revista">
+        <ion-list>
+            <ion-item>
+                <ion-label>Tocado</ion-label>
+                <ion-toggle formControlName="tocado"></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label>Cabello</ion-label>
+                <ion-toggle formControlName="cabello"></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label>Barba</ion-label>
+                <ion-toggle formControlName="barba"></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label>Uniforme</ion-label>
+                <ion-toggle formControlName="uniforme"></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label>Zapatos</ion-label>
+                <ion-toggle formControlName="zapatos"></ion-toggle>
+            </ion-item>
+        </ion-list>
+        <div style="padding: 10px;">
+            <ion-button (click)="saveRevista()" color="primary" expand="block">Continuar</ion-button>
+        </div>
+    </form>
+</ion-content>

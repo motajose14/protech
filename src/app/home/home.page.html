@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="dark">
+        <ion-title>
+            Protech
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div id="container">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <div class="type" (click)="userType('1')">
+                        <fa-icon icon="user"></fa-icon>
+                        <span>Cliente</span>
+
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <div class="type" (click)="userType('2')">
+                        <fa-icon icon="user-shield"></fa-icon>
+                        <span>Guardia</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>
