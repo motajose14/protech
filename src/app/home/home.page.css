@@ -1,0 +1,25 @@
+.type {
+  position: relative;
+  width: 200px;
+  height: 120px;
+  border-radius: 10px;
+  border: 1px solid #cdcdcd;
+}
+
+.type fa-icon {
+  position: absolute;
+  left: 25%;
+  color: #cdcdcd;
+  font-size: 100px;
+}
+
+.type span {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 43%;
+  left: 5%;
+  width: 90%;
+  color: white;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=home.page.css.map */

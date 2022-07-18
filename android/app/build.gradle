@@ -3,13 +3,13 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         debug {
-            storeFile file('E:\\Proyectos\\protech\\protech.keystore')
+            storeFile file('/media/josemota/Respaldo/Proyectos/protech/protech.keystore')
             storePassword 'jorge1561343'
             keyAlias = 'protech'
             keyPassword 'jorge1561343'
         }
         release {
-            storeFile file('E:\\Proyectos\\protech\\protech.keystore')
+            storeFile file('/media/josemota/Respaldo/Proyectos/protech/protech.keystore')
             storePassword 'jorge1561343'
             keyPassword 'jorge1561343'
             keyAlias = 'protech'
